@@ -1,15 +1,41 @@
-<div class="row login">
+<div class="row signup">
     <div class="form small-10 small-offset-1 column">
 
 	    <h1>Sign up</h1>
 
-      	<%= form_for @user do |f| %>
-     	  	<%= f.label :name %> <%= f.text_field :name %>
-	        <%= f.label :email %> <%= f.email_field :email %>
-	        <%= f.label :password %> <%= f.password_field :password %>
+      	<%= form_for @user, url: signup_path do |f| %>
+
+            <div class="control">
+         	  	<%= f.label :username, class: @user.errors[:username].any? ? "error" : "" do %>
+                    Username <%= f.text_field :username, class: @user.errors[:username].any? ? "error" : "" %>
+                <% end %>
+                <% if @user.errors[:username].any? %>
+                    <small class="error"><%= @user.errors[:username][0] %></small>
+                <% end %>
+            </div>
+
+            <div class="control">
+         	  	<%= f.label :email, class: @user.errors[:email].any? ? "error" : "" do %>
+                    Email <%= f.email_field :email, class: @user.errors[:email].any? ? "error" : "" %>
+                <% end %>
+                <% if @user.errors[:email].any? %>
+                    <small class="error"><%= @user.errors[:email][0] %></small>
+                <% end %>
+            </div>
+
+            <div class="control">
+         	  	<%= f.label :password, class: @user.errors[:password].any? ? "error" : "" do %>
+                    Password <%= f.password_field :password, class: @user.errors[:password].any? ? "error" : "" %>
+                <% end %>
+                <% if @user.errors[:password].any? %>
+                    <small class="error"><%= @user.errors[:password][0] %></small>
+                <% end %>
+            </div>
 
 	      	<%= f.submit 'Sign up', class: 'button' %>
       	<% end %>
+
+        <%= link_to "Already have an account?", login_path %>
 
     </div>
 </div>

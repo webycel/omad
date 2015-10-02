@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     delete '/logout' => 'session#destroy'
 
     get '/signup' => 'users#new', as: :signup
+    post '/signup' => 'users#create'
     resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

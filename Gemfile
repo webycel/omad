@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use foundation as the CSS framework
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+        <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+        <%= stylesheet_link_tag    "application" %>
+        <%= javascript_include_tag "vendor/modernizr" %>
+        <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
 
-  <body>
+    <body>
 
-    <%= yield %>
+        <% if @current_user %>
+        <header>
+            <nav>
+                <div class="icon-bar three-up" role="navigation">
+                    <a class="item fi-comments" aria-labelledby="#itemlabel1">
+                        <label id="itemlabel1">Chats</label>
+                    </a>
+                    <a class="item fi-widget" aria-labelledby="#itemlabel1">
+                        <label id="itemlabel1">Settings</label>
+                    </a>
+                    <a class="item fi-power" aria-labelledby="#itemlabel1">
+                        <label id="itemlabel1">Logout</label>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <% end %>
 
-  </body>
+        <%= yield %>
+
+    </body>
 </html>
