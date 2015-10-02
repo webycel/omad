@@ -14,23 +14,33 @@
 
     <body>
 
-        <% if @current_user %>
+
         <header>
             <nav>
+            <% if @current_user %>
                 <div class="icon-bar three-up" role="navigation">
-                    <a class="item fi-comments" aria-labelledby="#itemlabel1">
+                    <%= link_to nil, class: "item fi-comments", "aria-labelledby" => "#itemlabel1" do %>
                         <label id="itemlabel1">Chats</label>
-                    </a>
-                    <a class="item fi-widget" aria-labelledby="#itemlabel1">
-                        <label id="itemlabel1">Settings</label>
-                    </a>
-                    <a class="item fi-power" aria-labelledby="#itemlabel1">
-                        <label id="itemlabel1">Logout</label>
-                    </a>
+                    <% end %>
+                    <%= link_to nil, class: "item fi-widget", "aria-labelledby" => "#itemlabel2" do %>
+                        <label id="itemlabel2">Settings</label>
+                    <% end %>
+                    <%= link_to logout_path, method: "delete", class: "item fi-power", "aria-labelledby" => "#itemlabel3" do %>
+                        <label id="itemlabel3">Logout</label>
+                    <% end %>
                 </div>
+            <% else %>
+                <div class="icon-bar two-up" role="navigation">
+                    <%= link_to login_path, class: "item fi-torso", "aria-labelledby" => "#itemlabel1" do %>
+                        <label id="itemlabel1">Login</label>
+                    <% end %>">
+                    <%= link_to signup_path, class: "item fi-clipboard-pencil", "aria-labelledby" => "#itemlabel2" do %>
+                        <label id="itemlabel2">Sign up</label>
+                    <% end %>
+                </div>
+            <% end %>
             </nav>
         </header>
-        <% end %>
 
         <%= yield %>
 

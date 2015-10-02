@@ -1,6 +1,6 @@
 class ChatController < ApplicationController
 
-	before_action :require_user, only: [:index, :showAll]
+	before_action :require_user, only: [:showAll]
 
 	def showAll
 
