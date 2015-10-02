@@ -9,6 +9,7 @@ class SessionController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to '/'
 		else
+			@errors = "error"
 			render 'new'
 		end
 	end
