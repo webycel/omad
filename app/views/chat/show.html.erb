@@ -1,0 +1,26 @@
+<div class="row chat">
+
+	<div class="small-12 column">
+
+		<h1>Conversation</h1>
+
+		<ul class="chatbox">
+			<% @messages.each do |msg| %>
+				<li><%= msg.body %></li>
+			<% end %>
+		</ul>
+
+		<%= form_for [@chat, @message] do |f| %>
+			<div class="row collapse">
+				<div class="small-10 columns">
+					<%= f.text_field :body, :placeholder => "Type message" %>
+				</div>
+				<div class="small-2 columns">
+					<%= f.button "Send", class: 'button postfix fi-arrow-right' %>
+				</div>
+			</div>
+		<% end %>
+
+	</div>
+
+</div>

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	before_action :require_user, only: [:search]
+
 	def new
 		@user = User.new
 	end
@@ -14,9 +16,13 @@ class UsersController < ApplicationController
 		end
 	end
 
-	private
-	def user_params
-		params.require(:user).permit(:username, :email, :password)
+	def search
+		@users = User.allExcept(params[:search], @current_user.id)
 	end
+
+	private
+		def user_params
+			params.require(:user).permit(:username, :email, :password)
+		end
 
 end

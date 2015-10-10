@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require foundation_and_overrides
 
@@ -18,5 +17,11 @@
 
 @import 'foundation-icons';
 
-@import 'header';
-@import 'modules/forms';
+@import 'partials/variables';
+
+@import 'partials/header';
+@import 'partials/forms';
+
+@import 'chat';
+@import 'session';
+@import 'users';

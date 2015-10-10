@@ -17,12 +17,9 @@
         <header>
             <nav>
             <% if @current_user %>
-                <div class="icon-bar four-up" role="navigation">
-                    <%= link_to nil, class: "item fi-comments", "aria-labelledby" => "#itemlabel1" do %>
+                <div class="icon-bar three-up" role="navigation">
+                    <%= link_to chats_path, class: "item fi-comments", "aria-labelledby" => "#itemlabel1" do %>
                         <label id="itemlabel1">Chats</label>
-                    <% end %>
-                    <%= link_to nil, class: "item fi-results-demographics", "aria-labelledby" => "#itemlabel2" do %>
-                        <label id="itemlabel2">Contacts</label>
                     <% end %>
                     <%= link_to nil, class: "item fi-widget", "aria-labelledby" => "#itemlabel3" do %>
                         <label id="itemlabel3">Settings</label>

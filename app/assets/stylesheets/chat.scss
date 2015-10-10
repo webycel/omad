@@ -1,3 +1,33 @@
-// Place all the styles related to the Chat controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat {
+
+	.chatbox {
+		padding: 0.75em;
+		margin: 0;
+		height: 400px;
+		overflow: auto;
+		list-style: none;
+		border: 1px solid $grey;
+		border-bottom: none;
+
+		li {
+		}
+	}
+
+	.user-search {
+		margin: 0;
+		list-style: none;
+
+		.result {
+			border-bottom: 1px solid $grey;
+
+			div {
+				padding: 0.75rem 0;
+			}
+
+			&:first-child {
+				border-top: 1px solid $grey;
+			}
+		}
+
+	}
+}

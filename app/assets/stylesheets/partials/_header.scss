@@ -1,0 +1,15 @@
+header {
+	margin-bottom: 1em;
+}
+.icon-bar {
+	vertical-align: top;
+
+	&.submenu {
+		position: fixed;
+		bottom: 0;
+
+		> * {
+			padding: 0.6rem;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+<div class="row chat">
+
+	<div class="small-12 column">
+
+		<h1>Start a conversation</h1>
+
+		<%= form_for @user do |f| %>
+			<%= f.label :body do %>
+				<%= f.text_field :body %>
+			<% end %>
+		<% end %>
+
+	</div>
+
+</div>
+
+<%= render 'submenu' %>

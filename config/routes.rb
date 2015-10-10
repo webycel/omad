@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-    get '/' => 'chat#showAll', as: :chats
+    root :to => 'chat#showAll'
+
+    get '/chat' => 'chat#showAll', as: :chats
+    post '/chat/:recipient_id' => 'chat#create'
+    get '/chat/:id' => 'chat#show', as: :chat
+    get '/chat/send/:chat_id' => 'messages#create', as: :chat_message
+    post '/chat/send/:chat_id' => 'messages#create', as: :chat_messages
+
+    get '/user/search' => 'users#search', as: :search_user
 
     get '/login' => 'session#new', as: :login
     post '/login' => 'session#create'
