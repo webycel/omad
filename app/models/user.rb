@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	has_many :chats, :foreign_key => :sender_id
 
 	def self.allExcept(search, user_id)
-		if search.length > 0
+		if search && search.length > 0
 			where("(username like :search OR email like :search) AND id is not :user_id", :search => "%#{search}%", :user_id => user_id)
 		else
 			nil

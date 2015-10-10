@@ -3,7 +3,11 @@ class ChatController < ApplicationController
 	before_action :require_user, only: [:showAll, :create]
 
 	def showAll
-
+		# if Chat.between(@current_user.id, params[:recipient_id]).present?
+			@chats = Chat.mine(@current_user.id)
+		# else
+		# 	@chats = nil
+		# end
 	end
 
 	def create
@@ -13,10 +17,8 @@ class ChatController < ApplicationController
 			params[:sender_id] = @current_user.id
 			@chat = Chat.create!(chat_params)
 		end
-		render 'show'
-	end
 
-	def new
+		redirect_to chat_path(@chat)
 	end
 
 	def show

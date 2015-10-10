@@ -4,6 +4,12 @@
 
 		<h1>Chat list</h1>
 
+		<ul class="chat-list">
+			<% @chats.each do |chat| %>
+				<li><%= link_to "Chat #{chat.id}",chat_path(chat) %></li>
+			<% end %>
+		</ul>
+
 	</div>
 
 </div>
