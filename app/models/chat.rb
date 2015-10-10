@@ -13,8 +13,4 @@ class Chat < ActiveRecord::Base
  	scope :between, -> (sender_id,recipient_id) do
    		where("(chats.sender_id = :sender_id AND chats.recipient_id = :recipient_id) OR (chats.sender_id = :sender_id AND chats.recipient_id = :recipient_id)", :sender_id => sender_id, :recipient_id => recipient_id)
  	end
-
- 	scope :mine, -> (user_id) do
-   		where("chats.sender_id = :user_id OR chats.recipient_id = :user_id", :user_id => user_id)
- 	end
 end

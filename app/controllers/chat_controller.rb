@@ -3,11 +3,7 @@ class ChatController < ApplicationController
 	before_action :require_user, only: [:showAll, :create]
 
 	def showAll
-		# if Chat.between(@current_user.id, params[:recipient_id]).present?
-			@chats = Chat.mine(@current_user.id)
-		# else
-		# 	@chats = nil
-		# end
+		@chats = Chat.involving(@current_user)
 	end
 
 	def create

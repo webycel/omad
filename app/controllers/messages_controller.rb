@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-	before_action :require_user, only: [:showAll, :create]
+	before_action :require_user, only: [:create]
 
 	def create
 		@chat = Chat.find(params[:chat_id])

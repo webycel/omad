@@ -4,11 +4,28 @@
 
 		<h1>Chat list</h1>
 
-		<ul class="chat-list">
+		<ul class="list">
 			<% @chats.each do |chat| %>
-				<li><%= link_to "Chat #{chat.id}",chat_path(chat) %></li>
+				<li class="row collapse result">
+					<%= link_to chat_path(chat) do %>
+						<div class="small-1 columns">
+							<i class="fi-comment"></i>
+						</div>
+						<div class="small-11 columns">
+							<%= chat.sender.username 	unless @current_user.id == chat.sender.id %>
+							<%= chat.recipient.username unless @current_user.id == chat.recipient.id %>
+						</div>
+					<% end %>
+				</li>
 			<% end %>
 		</ul>
+
+		<% if @chats.empty? %>
+			<p class="panel text-center">
+				<i>You don't have any conversations.</i><br>
+				<%= link_to "Start a new conversation", search_user_path %>
+			</p>
+		<% end %>
 
 	</div>
 
